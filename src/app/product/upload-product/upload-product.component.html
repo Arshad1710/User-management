@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div class="upload-container">
+    <h2>Upload Product CSV</h2>
+    <input type="file" accept=".csv" (change)="onFileSelected($event)" />
+    <button (click)="processCSV()">Upload and Display</button>
+  </div>
+  <div *ngIf="products.length > 0" class="product-table-container">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+            <th>#</th>
+          <th>Brand</th>
+          <th>Short Description</th>
+          <th>Price</th>
+          <th>Actual Price</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products; let i = index">
+            <td>{{i+1}}</td>
+          <td>{{ product.brand }}</td>
+          <td>{{ product.shortDescription }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.actualPrice }}</td>
+          <td>
+            <img [src]="product.imageUrl" alt="Product Image" width="50" height="50">
+          </td>
+          <td>
+            <button (click)="editProduct(i)">Edit</button>
+          <button (click)="deleteProduct(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 

@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<section class="product">
+    <h2 class="product-category">best selling</h2>
+</section>
+<div class="container">
+    <div class="row">
+      <div class="col-md-3" *ngFor="let product of products; let i = index">
+        <div class="product-card"  (click)="viewProductDetail(product)">
+          <div class="product-image">
+            <span class="discount-tag">50% off</span>
+            <img [src]="product.imageUrl" class="product-thumb" alt="Product Image {{i + 1}}">
+            <button class="card-btn">add to wishlist</button>
+          </div>
+          <div class="product-info">
+            <h2 class="product-brand">{{ product.brand }}</h2>
+            <p class="product-short-des">{{ product.shortDescription }}</p>
+            <span class="price">${{ product.price }}</span>
+            <span class="actual-price">${{ product.actualPrice }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

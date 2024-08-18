@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<section class="product-details">
+    <div class="content-container">
+      <div class="image-slider">
+        <div class="product-images">
+          <div class="image-container">
+            <img [src]="product?.imageUrl" class="active" alt="Product Image">
+          </div>
+        </div>
+      </div>
+  
+      <div class="details">
+        <h2 class="product-brand">{{ product?.brand }}</h2>
+        <p class="product-short-des">{{ product?.shortDescription }}</p>
+        <span class="product-price">${{ product?.price }}</span>
+        <span class="product-actual-price">${{ product?.actualPrice }}</span>
+        <span class="product-discount">( 50% off )</span>
+  
+        <p class="product-sub-heading">Select Size</p>
+        <div class="size-options-container">
+            <input type="radio" name="size" value="s" id="s-size">
+            <label for="s-size" class="size-radio-btn">s</label>
+            <input type="radio" name="size" value="m" id="m-size">
+            <label for="m-size" class="size-radio-btn">m</label>
+            <input type="radio" name="size" value="l" id="l-size">
+            <label for="l-size" class="size-radio-btn">l</label>
+            <input type="radio" name="size" value="xl" id="xl-size">
+            <label for="xl-size" class="size-radio-btn">xl</label>
+            <input type="radio" name="size" value="xxl" id="xxl-size">
+            <label for="xxl-size" class="size-radio-btn">xxl</label>
+        </div>
+        <div class="addcart-options-container">
+            <button class="btn cart-btn">Add to Cart</button>
+        <button class="btn">Add to Wishlist</button>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  

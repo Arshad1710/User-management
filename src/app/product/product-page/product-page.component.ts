@@ -4,6 +4,7 @@ import { Product } from '../product.model';
 import { ProductDataService } from '../product-data.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { WishlistService } from '../wishlist.service';
 
 @Component({
   selector: 'app-product-page',
@@ -17,8 +18,11 @@ import { Router } from '@angular/router';
 })
 export class ProductPageComponent implements OnInit{
   products: Product[] = [];
-  constructor(private productDataService: ProductDataService, 
-    private router: Router) {}
+  constructor(
+    private productDataService: ProductDataService, 
+    private router: Router,
+    private wishlistService: WishlistService,
+  ) {}
 
   ngOnInit(): void {
     const storedData = localStorage.getItem('productData');
@@ -30,5 +34,9 @@ export class ProductPageComponent implements OnInit{
   }
   viewProductDetail(product: Product): void {
     this.router.navigate(['/product', product.brand]); 
+  }
+  addToWishlist(){
+    this.wishlistService.addToWishlist(this.products);
+    this.router.navigate(['/wishlist']);
   }
 }

@@ -3,12 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from '../product.model';
 import { ProductDataService } from '../product-data.service';
 import { NavbarComponent } from '../../navbar/navbar.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
   imports: [
-    NavbarComponent
+    NavbarComponent,
+    CommonModule
   ],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss'

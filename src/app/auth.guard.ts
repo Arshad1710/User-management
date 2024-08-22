@@ -5,6 +5,7 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
 const router = inject(Router);
 const expectedRole = route.data['role'] as string;
     const user = JSON.parse(localStorage.getItem('userApp') || '{}');
+    console.log('authGuard:', { state, user, expectedRole });
 if (user && user.role === expectedRole) {
   if (state.url === '/login') {
     router.navigate(['home']); 

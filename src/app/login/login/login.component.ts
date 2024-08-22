@@ -49,7 +49,7 @@ if(user){
   };
   localStorage.setItem('userApp', JSON.stringify(res.data));
   if(user.Role === 'admin'){
-    this.router.navigateByUrl('home');  
+    this.router.navigateByUrl('upload-product');  
   }else if(user.Role === 'customer'){
     this.router.navigateByUrl('product'); 
   }
